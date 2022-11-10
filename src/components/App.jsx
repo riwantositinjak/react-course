@@ -1,22 +1,20 @@
-//Create a react app from scratch.
-//It should display a h1 heading.
-//It should display an unordered list (bullet points).
-//It should contain 3 list elements.
-import React from "react";
+import React, { useState } from "react";
 
-const fname = "Riwanto";
-const lname = "Sitinjak";
-const number = 7;
+function App() {
+  const time = new Date().toLocaleTimeString();
+  const [waktu, setWaktu] = useState(time);
 
-const App = () => {
+  const handleClick = () => {
+    const now = new Date().toLocaleTimeString();
+    setWaktu(now);
+  };
+  setInterval(handleClick, 1000)
   return (
-    <div>
-      <h1>
-        Hello {fname} {lname}
-      </h1>
-      <p>my lucky number is {number}</p>
+    <div className="container">
+      <h1>{waktu}</h1>
+      <button onClick={handleClick}>Get Time</button>
     </div>
   );
-};
+}
 
 export default App;
