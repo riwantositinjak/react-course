@@ -1,22 +1,31 @@
-//Create a react app from scratch.
-//It should display a h1 heading.
-//It should display an unordered list (bullet points).
-//It should contain 3 list elements.
 import React from "react";
+import Card from "./Card";
+import contacts from "../contact";
 
-const fname = "Riwanto";
-const lname = "Sitinjak";
-const number = 7;
-
-const App = () => {
+function App() {
   return (
     <div>
-      <h1>
-        Hello {fname} {lname}
-      </h1>
-      <p>my lucky number is {number}</p>
+      <h1 className="heading">My Contacts</h1>
+      <Card
+        name={contacts[0].name}
+        img={contacts[0].imgURL}
+        tel={contacts[0].phone}
+        email={contacts[0].email}
+      />
+      <Card
+        name={contacts[1].name}
+        img={contacts[1].imgURL}
+        tel={contacts[1].phone}
+        email={contacts[1].email}
+      />
+      <Card
+        name={contacts[2].name}
+        img={contacts[2].imgURL}
+        tel={contacts[2].phone}
+        email={contacts[2].email}
+      />
     </div>
   );
-};
+}
 
 export default App;
