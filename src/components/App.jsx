@@ -1,20 +1,22 @@
 //Create a react app from scratch.
-//It should display a h1 heading.
-//It should display an unordered list (bullet points).
-//It should contain 3 list elements.
+//It should display 2 paragraph HTML elements.
+//The paragraphs should say:
+//Created by YOURNAME.
+//Copyright CURRENTYEAR.
+//E.g.
+//Created by Angela Yu.
+//Copyright 2019.
+
 import React from "react";
 
-const fname = "Riwanto";
-const lname = "Sitinjak";
-const number = 7;
+const name = "Riwanto Sitinjak";
+const year = new Date().getFullYear();
 
 const App = () => {
   return (
     <div>
-      <h1>
-        Hello {fname} {lname}
-      </h1>
-      <p>my lucky number is {number}</p>
+      <p>Created By {name}</p>
+      <p>Copyright {year}</p>
     </div>
   );
 };
