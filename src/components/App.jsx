@@ -1,22 +1,51 @@
-//Create a react app from scratch.
-//It should display a h1 heading.
-//It should display an unordered list (bullet points).
-//It should contain 3 list elements.
-import React from "react";
+import React, { useState } from "react";
 
-const fname = "Riwanto";
-const lname = "Sitinjak";
-const number = 7;
+function App() {
+  const [fullName, setFullName] = useState({
+    fName: "",
+    lName: "",
+  });
 
-const App = () => {
+  function handleChange(event) {
+    const { value, name } = event.target;
+
+    setFullName((prevValue) => {
+      if (name === "fName") {
+        return {
+          fName: value,
+          lName: prevValue.lName,
+        };
+      } else if (name === "lName") {
+        return {
+          fName: prevValue.fName,
+          lname: value,
+        };
+      }
+    });
+  }
+
   return (
-    <div>
+    <div className="container">
       <h1>
-        Hello {fname} {lname}
+        Hello {fullName.fName} {fullName.lName}
       </h1>
-      <p>my lucky number is {number}</p>
+      <form>
+        <input
+          name="fName"
+          onChange={handleChange}
+          placeholder="First Name"
+          value={fullName.fName}
+        />
+        <input
+          name="lName"
+          onChange={handleChange}
+          placeholder="Last Name"
+          value={fullName.lName}
+        />
+        <button>Submit</button>
+      </form>
     </div>
   );
-};
+}
 
 export default App;
